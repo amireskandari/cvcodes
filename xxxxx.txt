@@ -1,0 +1,42 @@
+sudo cmake -D CMAKE_BUILD_TYPE=RELEASE \
+-D CMAKE_INSTALL_PREFIX=/usr/local \
+-D OPENCV_EXTRA_MODULES_PATH=/opt/opencv_contrib/modules /opt/opencv/ \
+-D INSTALL_C_EXAMPLES=ON \
+-D WITH_OPENGL=ON \
+-D WITH_TBB=ON \
+-D BUILD_ZLIB=ON \
+-D WITH_OPENEXR=ON \
+-D WITH_UNICAP=ON \
+-D INSTALL_PYTHON_EXAMPLES=ON \
+-D BUILD_EXAMPLES=ON \
+-D WITH_QT=ON \
+-D CUDA_FAST_MATH=ON \
+-D WITH_CUBLAS=ON \
+-D WITH_NVCUVID=ON \
+-D WITH_V4L=ON ..
+
+
+sudo cmake -D CMAKE_BUILD_TYPE=RELEASE \
+-D CMAKE_INSTALL_PREFIX=/usr/local \
+-D INSTALL_C_EXAMPLES=ON \
+-D WITH_OPENGL=ON \
+-D WITH_TBB=ON \
+-D BUILD_ZLIB=ON \
+-D WITH_OPENEXR=ON \
+-D WITH_UNICAP=ON \
+-D INSTALL_PYTHON_EXAMPLES=ON \
+-D BUILD_EXAMPLES=ON \
+-D WITH_QT=ON \
+-D CUDA_FAST_MATH=ON \
+-D WITH_CUBLAS=ON \
+-D WITH_NVCUVID=ON \
+-D WITH_V4L=ON ..
+
+
+
+
+sudo ln -s /usr/lib/nvidia-352/libnvcuvid.so /usr/lib/libnvcuvid.so
+sudo ln -s /usr/lib/nvidia-352/libnvcuvid.so.1 /usr/lib/libnvcuvid.so.1
+
+
+ Could NOT find JNI (missing:  JAVA_INCLUDE_PATH JAVA_INCLUDE_PATH2 JAVA_AWT_INCLUDE_PATH) 

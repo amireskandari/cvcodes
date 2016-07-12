@@ -1,0 +1,200 @@
+===================
+Set Java Path
+
+sudo nano /etc/profile
+
+
+JAVA_HOME=/usr/lib/jvm/java-8-oracle
+PATH=$PATH:$HOME/bin:$JAVA_HOME/bin
+export JAVA_HOME
+export JRE_HOME
+export PATH
+
+
+==================
+Install WebCam
+
+sudo apt-get install fswebcam //sudo apt-get install mesa-common-dev
+
+sudo apt-get install luvcview // luvcview -s 320x240
+=================
+
+Insatll OpenGL
+
+
+sudo apt-get install build-essential
+
+sudo apt-get install freeglut3 freeglut3-dev
+
+http://www.rpmseek.com/rpm-pl/libglui2c2.html?hl=com&cs=libgcc1:RE:0:0:0:0:2420
+
+dpkg -i libglui2c2_2.36-4_amd64.deb
+
+===================
+
+Install QT
+
+
+wget http://download.qt.io/official_releases/qt/5.0/5.0.2/
+
+chmod +x qt-linux-opensource-5.0.2-x86-offline.run
+
+./qt-linux-opensource-5.0.2-x86-offline.run
+
+wget http://download.qt.io/official_releases/qt/5.0/5.0.2/
+
+sudo apt-get install mesa-common-dev
+
+sudo apt-get install libglu1-mesa-dev -y
+
+
+================================
+
+sudo apt-get install libopencv-dev python-opencv
+
+python
+>>> import cv2
+>>> cv2.__version__ 
+=================================
+OpenCV Compile ##################
+=================================
+
+
+# this takes about 3.5 hours total on a RPi 2, the make command alone takes about 3 hours
+
+cd ~
+
+sudo apt-get update
+sudo apt-get upgrade
+
+sudo apt-get install python-numpy python-scipy python-matplotlib
+
+sudo apt-get install build-essential cmake pkg-config
+
+sudo apt-get install default-jdk ant
+
+sudo apt-get install libgtkglext1-dev
+
+sudo apt-get install v4l-utils
+
+sudo apt-get install libjpeg8 \
+libjpeg8-dev \
+libjpeg8-dbg \
+libjpeg-progs \
+libavcodec-dev \
+libavformat-dev \
+libgstreamer0.10-0-dbg \
+libgstreamer0.10-0 \
+libgstreamer0.10-dev \
+libxine2-dev \
+libunicap2 \
+libunicap2-dev \
+swig \
+libv4l-0 \
+libv4l-dev \
+python-numpy \
+libpython2.7 \
+python-dev \
+python2.7-dev \
+libgtk2.0-dev \
+libjasper-dev \
+libpng12-dev \
+libswscale-dev
+
+wget http://sourceforge.net/projects/opencvlibrary/files/opencv-unix/3.0.0/opencv-3.0.0.zip
+
+unzip opencv-3.0.0.zip
+
+cd opencv-3.0.0
+
+mkdir build
+
+cd build
+
+cmake -D CMAKE_BUILD_TYPE=RELEASE \
+-D INSTALL_C_EXAMPLES=ON \
+-D INSTALL_PYTHON_EXAMPLES=ON \
+-D BUILD_EXAMPLES=ON \
+-D CMAKE_INSTALL_PREFIX=/usr/local \
+-D WITH_V4L=ON ..
+
+# The next command, make, takes about 3 hours and pushes the RPi to the limits of what it is capable of, and as a result the RPi will get noticeably warm
+# To prevent overheating, it would be best to remove the top of the case and perch the RPi on a small metal object to facilitate air circulation and heat dissipation
+
+sudo make            # this takes about 3 hours on the RPi 2
+
+sudo make install
+
+sudo nano /etc/ld.so.conf.d/opencv.conf
+
+# opencv.conf will be blank, add the following line, then save and exit nano:
+
+/usr/local/lib          # enter this in opencv.conf, NOT at the command line
+(leave a blank line at the end of opencv.conf)
+
+# back to the command line
+
+sudo ldconfig
+
+sudo nano /etc/bash.bashrc
+
+# add the following lines at the bottom of bash.bashrc
+
+PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig       # enter these at the bottom of bash.bashrc, NOT at the command line
+export PKG_CONFIG_PATH                                          # enter these at the bottom of bash.bashrc, NOT at the command line
+(leave a blank line at the end of bash.bashrc)
+
+# save bash.bashrc changes, then back at the command line, reboot
+
+sudo shutdown -r now
+
+# after rebooting, verify our OpenCV install
+
+python                       # enter interactive Python prompt session
+>>> import cv2
+>>> cv2.__version__
+
+# should say your OpenCV version, i.e. '3.0.0', press Ctrl+D to exit the Python prompt session
+
+
+== Upgrade opencv =====
+
+sudo make uninstall
+
+--or--JAVA_HOME=/usr/lib/jvm/java-8-oracle
+PATH=$PATH:$HOME/bin:$JAVA_HOME/bin
+export JAVA_HOME
+export JRE_HOME
+export PATH
+
+sudo find / -name "*opencv*" -exec rm -i {} \;
+sudo ldconfig && sudo ldconfig -vp
+
+
+sudo apt-get install build-essential
+
+sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+
+sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+
+/opt$ cd opencv
+/opt/opencv$ git checkout 3.1.0
+/opt/opencv$ cd /opt/opencv_contrib
+/opt/opencv_contrib$ git checkout 3.1.0
+/opt/opencv_contrib$ cd /opt/opencv
+
+/opt/opencv$ mkdir release
+/opt/opencv$ cd release
+/opt/opencv/release$
+
+/opt/opencv/release$ cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D OPENCV_EXTRA_MODULES_PATH=/opt/opencv_contrib/modules /opt/opencv/
+
+
+/opt/opencv/release$ make
+/opt/opencv/release$ sudo make install
+
+pkg-config --modversion opencv
+
+
+
+
