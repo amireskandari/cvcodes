@@ -1,0 +1,53 @@
+ ******************* Caffe Configuration Summary *******************
+-- General:
+--   Version           :   1.0.0-rc3
+--   Git               :   rc3-186-gf28f5ae
+--   System            :   Linux
+--   C++ compiler      :   /usr/bin/c++
+--   Release CXX flags :   -O3 -DNDEBUG -fPIC -Wall -Wno-sign-compare -Wno-uninitialized
+--   Debug CXX flags   :   -g -fPIC -Wall -Wno-sign-compare -Wno-uninitialized
+--   Build type        :   Release
+-- 
+--   BUILD_SHARED_LIBS :   ON
+--   BUILD_python      :   ON
+--   BUILD_matlab      :   OFF
+--   BUILD_docs        :   ON
+--   CPU_ONLY          :   OFF
+--   USE_OPENCV        :   ON
+--   USE_LEVELDB       :   ON
+--   USE_LMDB          :   ON
+--   ALLOW_LMDB_NOLOCK :   OFF
+-- 
+-- Dependencies:
+--   BLAS              :   Yes (Atlas)
+--   Boost             :   Yes (ver. 1.54)
+--   glog              :   Yes
+--   gflags            :   Yes
+--   protobuf          :   Yes (ver. 2.5.0)
+--   lmdb              :   Yes (ver. 0.9.10)
+--   LevelDB           :   Yes (ver. 1.15)
+--   Snappy            :   Yes (ver. 1.1.0)
+--   OpenCV            :   Yes (ver. 2.4.13)
+--   CUDA              :   Yes (ver. 7.5)
+-- 
+-- NVIDIA CUDA:
+--   Target GPU(s)     :   Auto
+--   GPU arch(s)       :   sm_30
+--   cuDNN             :   Not found
+-- 
+-- Python:
+--   Interpreter       :   /usr/bin/python2.7 (ver. 2.7.6)
+--   Libraries         :   /usr/lib/x86_64-linux-gnu/libpython2.7.so (ver 2.7.6)
+--   NumPy             :   /usr/lib/python2.7/dist-packages/numpy/core/include (ver 1.8.2)
+-- 
+-- Documentaion:
+--   Doxygen           :   No
+--   config_file       :   
+-- 
+-- Install:
+--   Install path      :   /home/amhoes/caffe/.build_release/install
+-- 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/amhoes/caffe/.build_release
+
